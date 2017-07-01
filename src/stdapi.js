@@ -31,7 +31,7 @@ import Ducky             from "ducky"
 /*  provide API class  */
 class StdAPI {
     constructor (options, spec) {
-        /*  define internal state  */
+        /*  define empty internal state  */
         Object.defineProperty(this, "_", {
             configurable: false,
             enumerable:   false,
