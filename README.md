@@ -43,20 +43,14 @@ class MyClass extends StdAPI {
             }
         })
     }
-    foo () {
+    foo (arg) {
         this.debug(1, "foo called")
+        arg = this.hook("foo", "pass", arg)
+        void (arg) /* ... */
+        this.emit("foo done")
         return this
     }
 }
-
-let myClass = new MyClass({ name: "Foo" })
-
-myClass.$.name === "Foo"
-myClass.$.bar.baz === 42
-myClass.set({ bar: { baz: 7 } })
-myClass.$.bar.baz === 7
-
-myClass.on("debug", () => { })
 ```
 
 License
