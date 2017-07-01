@@ -15,11 +15,13 @@ About
 
 This is a small JavaScript library for the Browser and Node.js,
 providing a base class for a standard Application Programming
-Interface (API) based on constructor options, event emitting
-and hook latching functionality. Internally, the functionality
+Interface (API) based on the usual functionalities constructor options, event emitting
+and hook latching. Internally, the functionality
 is directly based on [Ducky](https://duckyjs.com) `options`,
 [EventEmitter3](https://github.com/primus/eventemitter3) and
 [Latching](https://github.com/rse/latching).
+The purpose of this base class is to reduce the necessary
+boilerplate code for implementing standard APIs.
 
 Installation
 ------------
