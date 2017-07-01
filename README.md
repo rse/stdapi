@@ -55,6 +55,11 @@ class MyClass extends StdAPI {
 }
 ```
 
+Application Programming Interface (API)
+---------------------------------------
+
+Please just see the [very small implementation](src/stdapi.js) itself.
+
 License
 -------
 
