@@ -22,6 +22,7 @@
     "bugs":     "https://github.com/rse/stdapi/issues",
     "dependencies": {
         "object-assign":                             "~4.1.1",
+        "promise":                                   "~8.0.1",
         "ducky":                                     "~2.6.1",
         "latching":                                  "~0.9.6",
         "eventemitter3":                             "~2.0.3"

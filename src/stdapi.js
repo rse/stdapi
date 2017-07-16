@@ -23,6 +23,7 @@
 */
 
 /*  import external requirements  */
+import Promise           from "promise"
 import objectAssign      from "object-assign"
 import EventEmitter      from "eventemitter3"
 import Latching          from "latching"
@@ -56,6 +57,12 @@ class StdAPI {
             writable:     false,
             value:        new Latching()
         })
+
+        /*  provide a special Promise-based hook processing  */
+        this.__latching.proc("promise",
+            (p)    => Promise.resolve(p),
+            (o, n) => o.then(() => n)
+        )
 
         /*  provide event emitter sub-system  */
         Object.defineProperty(this, "__emitter", {

@@ -65,8 +65,16 @@ describe("StdAPI Library", () => {
     })
     it("hook functionality", () => {
         let stdapi = new StdAPI()
-        stdapi.at("foo", (arg) => `${arg}:quux`)
-        expect(stdapi.hook("foo", "pass", "bar")).to.be.equal("bar:quux")
+        stdapi.at("foo", (arg, ctx) => `${ctx}:baz`)
+        stdapi.at("foo", (arg, ctx) => `${ctx}:quux`)
+        expect(stdapi.hook("foo", "pass", "bar")).to.be.equal("bar:baz:quux")
+    })
+    it("async hook functionality", async () => {
+        let stdapi = new StdAPI()
+        stdapi.at("foo", async (arg, ctx) => `${await ctx}:baz`)
+        stdapi.at("foo", async (arg, ctx) => `${await ctx}:quux`)
+        let result = await stdapi.hook("foo", "promise", "bar")
+        expect(result).to.be.equal("bar:baz:quux")
     })
 })
 
