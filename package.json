@@ -1,6 +1,6 @@
 {
     "name":        "stdapi",
-    "version":     "0.9.3",
+    "version":     "0.9.4",
     "description": "Standard Application Programming Interface Base Class",
     "keywords":    [ "standard", "api", "event", "hook", "options" ],
     "browser":     "./lib/stdapi.browser.js",
