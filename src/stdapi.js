@@ -113,8 +113,8 @@ class StdAPI {
     /*  provide debug logging  */
     debug (level, msg) {
         if (level <= this.$.debug) {
-            let date = (new Date()).toISOString()
-            let log = `${date} DEBUG [${level}]: ${msg}`
+            const date = (new Date()).toISOString()
+            const log = `${date} DEBUG [${level}]: ${msg}`
             let event = { date, level, msg, log }
             event = this.hook("debug", "pass", event)
             if (event !== null)

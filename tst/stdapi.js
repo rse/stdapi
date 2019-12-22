@@ -30,7 +30,7 @@ var StdAPI = require("../lib/stdapi.node.js")
 
 describe("StdAPI Library", () => {
     it("API availability", () => {
-        let stdapi = new StdAPI()
+        const stdapi = new StdAPI()
         expect(stdapi).to.respondTo("set")
         expect(stdapi).to.respondTo("on")
         expect(stdapi).to.respondTo("emit")
@@ -47,7 +47,7 @@ describe("StdAPI Library", () => {
                 })
             }
         }
-        let test = new Test({ bar: "baz" })
+        const test = new Test({ bar: "baz" })
         expect(test.$.debug).to.be.equal(0)
         expect(test.$.bar).to.be.equal("baz")
         expect(test.$.foo).to.be.equal("foo")
@@ -57,23 +57,23 @@ describe("StdAPI Library", () => {
         expect(() => { void (new Test({ foo: 42 })) }).to.throw(Error)
     })
     it("event functionality", () => {
-        let stdapi = new StdAPI()
+        const stdapi = new StdAPI()
         let ok = false
         stdapi.on("foo", (arg1, arg2) => { ok = (arg1 === "bar" && arg2 === "quux") })
         stdapi.emit("foo", "bar", "quux")
         expect(ok).to.be.equal(true)
     })
     it("hook functionality", () => {
-        let stdapi = new StdAPI()
+        const stdapi = new StdAPI()
         stdapi.at("foo", (arg, ctx) => `${ctx}:baz`)
         stdapi.at("foo", (arg, ctx) => `${ctx}:quux`)
         expect(stdapi.hook("foo", "pass", "bar")).to.be.equal("bar:baz:quux")
     })
     it("async hook functionality", async () => {
-        let stdapi = new StdAPI()
+        const stdapi = new StdAPI()
         stdapi.at("foo", async (arg, ctx) => `${await ctx}:baz`)
         stdapi.at("foo", async (arg, ctx) => `${await ctx}:quux`)
-        let result = await stdapi.hook("foo", "promise", "bar")
+        const result = await stdapi.hook("foo", "promise", "bar")
         expect(result).to.be.equal("bar:baz:quux")
     })
 })

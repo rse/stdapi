@@ -63,4 +63,7 @@ rules:
     object-property-newline:             off
     curly:                               off
     space-in-parens:                     off
+    array-bracket-spacing:               off
+    no-void:                             off
+    computed-property-spacing:           off
 
