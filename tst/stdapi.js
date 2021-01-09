@@ -26,7 +26,7 @@ const chai = require("chai")
 const { expect } = chai
 chai.config.includeStack = true
 
-var StdAPI = require("../lib/stdapi.node.js")
+const StdAPI = require("../lib/stdapi.node.js")
 
 describe("StdAPI Library", () => {
     it("API availability", () => {
